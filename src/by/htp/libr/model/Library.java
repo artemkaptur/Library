@@ -33,6 +33,10 @@ public class Library {
 			CountOfBooks = books.length;
 		}
 	}
+	
+	public Book[] getBooks() {
+		return this.books;
+	}
 
 	// Add one book to our library
 	public void addBook(Book book) {

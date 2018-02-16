@@ -12,12 +12,24 @@ public class Author {
 		return this.name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getSurname() {
 		return this.surname;
+	}
+	
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public Date getBirthdate() {
 		return this.birthDate;
+	}
+	
+	public void setBirthdate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 	
 	// Constructor without parameters
