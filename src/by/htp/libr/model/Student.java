@@ -22,23 +22,43 @@ public class Student {
 		this.age = age;
 		this.enteringYear = enteringYear;
 	}
-	
-	public void addID(int x) {
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getSurname() {
+		return this.surname;
+	}
+
+	public void setID(int x) {
 		groupID = x;
 	}
-	
+
+	public double getID() {
+		return this.groupID;
+	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	public double getAge() {
 		return this.age;
 	}
-	
+
 	public void setYear(int enteringYear) {
 		this.enteringYear = enteringYear;
 	}
-	
+
 	public int getYear() {
 		return this.enteringYear;
 	}
@@ -66,22 +86,6 @@ public class Student {
 			book.addOwner(this);
 			studentBooks++;
 		}
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	
-	public String getSurname() {
-		return this.surname;
 	}
 
 }

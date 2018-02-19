@@ -6,19 +6,16 @@ public class Book {
 	private int year;
 	private Author[] authors;
 	private int authorCounter;
-	private Student bookOwner; //Student who take this book
+	private Student bookOwner; // Student who take this book
 
-	public void addOwner(Student stud) {
-		bookOwner = stud;
+	// Constructor without parameters
+	public Book() {
 	}
 
-	// Show who has this book now
-	public void showBookOwner() {
-		if (bookOwner != null) {
-			System.out.print("In current moment student ");
-			System.out.print(bookOwner.getName() + " " + bookOwner.getSurname());
-			System.out.println(" has this book");
-		}
+	// Constructor with parameters
+	public Book(String title, int year) {
+		this.title = title;
+		this.year = year;
 	}
 
 	public void setTitle(String title) {
@@ -45,6 +42,14 @@ public class Book {
 		}
 	}
 
+	public Author[] getAuthors() {
+		return authors;
+	}
+
+	public int getAuthorCounter() {
+		return this.authorCounter;
+	}
+
 	// Add one author to our book
 	public void addAuthor(Author author) {
 		// Check NPE
@@ -67,24 +72,27 @@ public class Book {
 		}
 	}
 
-	public Author[] getAuthors() {
-		return authors;
-	}
-
 	public void showAuthors() {
-		for (int i = 0; i < authorCounter; i++) {
-			System.out.print(
-					authors[i].getName() + " " + authors[i].getSurname() + " - " + authors[i].getBirthdate() + " ");
+		if (authors != null) {
+			for (int i = 0; i < authorCounter; i++) {
+				System.out.print(
+						authors[i].getName() + " " + authors[i].getSurname() + " - " + authors[i].getBirthdate() + " ");
+			}
+		} else {
+			System.out.println("There are no authors ");
 		}
 	}
 
-	// Constructor without parameters
-	public Book() {
-	};
+	public void addOwner(Student stud) {
+		bookOwner = stud;
+	}
 
-	// Constructor with parameters
-	public Book(String title, int year) {
-		this.title = title;
-		this.year = year;
-	};
+	// Show who has this book now
+	public void showBookOwner() {
+		if (bookOwner != null) {
+			System.out.print("In current moment student ");
+			System.out.print(bookOwner.getName() + " " + bookOwner.getSurname());
+			System.out.println(" has this book");
+		}
+	}
 }

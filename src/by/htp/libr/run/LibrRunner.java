@@ -15,7 +15,7 @@ public class LibrRunner {
 	public static void main(String[] args) throws ParseException {
 
 		SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		
+
 		// Create dates of birth our authors
 		Date date1 = df.parse("13-01-1972");
 		Date date2 = df.parse("22-02-1976");
@@ -54,7 +54,6 @@ public class LibrRunner {
 
 		// Show all books situated in this library
 		libr.showStatus();
-		System.out.println("==================================================");
 
 		// Create ten student objects
 		Student stud1 = new Student("John", "Dilinjer", 17, 2015);
@@ -80,7 +79,7 @@ public class LibrRunner {
 		group2.addStudent(stud3);
 		group2.addStudent(stud4);
 		group2.addStudent(stud5);
-		
+
 		// Create the third and fourth student group and add students there
 		Student[] students2 = new Student[] { stud6, stud7, stud8, stud9, stud10 };
 		StudentGroup group3 = new StudentGroup(3);
@@ -90,49 +89,55 @@ public class LibrRunner {
 
 		// Output to console students from each group
 		group1.showStudentGroup();
-		System.out.println("==================================================");
 		group2.showStudentGroup();
-		System.out.println("==================================================");
 		group3.showStudentGroup();
-		System.out.println("==================================================");
 		group4.showStudentGroup();
-		System.out.println("==================================================");
-		
+
 		// Student one and two take books
 		stud1.takeBook(book1);
 		stud2.takeBook(book2);
 		stud2.takeBook(book3);
 		libr.showStatus();
-		System.out.println("==================================================");
-		
+
 		// Output average age of students from the second group
-		double averA = group2.getAverageAge();
-		System.out.println("Avarage age of students from group 2 is " + averA + " years");
-		System.out.println("==================================================");
-		
+		group2.showAverageAge();
+
 		// Output to the console number of students who entered in 2015
-		int count2015 = group2.getNumbStudOfYear(2015);
-		System.out.println("Number of students entered in 2015 is " + count2015);
-		System.out.println("==================================================");
-		
-		int maxYear = group2.findBiggestYear();
-		System.out.println("The max number of student (" + group2.getNumbStudOfYear(maxYear) + ") entered in " + maxYear);
-		System.out.println("==================================================");
-		
+		group2.showNumbStudOfYear(2015);
+
+		// Find and output to the console the biggest number of students entered in one year
+		group2.showBiggestYear();
+
+		// Sort students in group by their age, using bubble sort
 		group2.bubbleSort();
 		group2.showStudentGroup();
-		System.out.println("==================================================");
-		
+
+		// Sort students in group by their age, using selection sort
 		group1.selectionSort();
 		group1.showStudentGroup();
-		System.out.println("==================================================");
-		
+
+		// Sort students in group by their age, using insertion sort
 		group3.insertionSort();
 		group3.showStudentGroup();
-		System.out.println("==================================================");
-		
+
+		// Sort students in group by their age, using quick sort
 		group4.quickSort();
 		group4.showStudentGroup();
+
+		// Sort books in library by publishing year
+		libr.quickSort();
+		libr.showStatus();
+
+		// Find book by author and output it to the console
+		Book[] booksAuth1 = libr.findAuthorBooks(auth1);
+		int i = 0;
+		while ((booksAuth1[i] != null) && (i < booksAuth1.length)) {
+			System.out.print("\"" + booksAuth1[i].getTitle() + "\" " + booksAuth1[i].getYear() + " year, by ");
+			booksAuth1[i].showAuthors();
+			System.out.println();
+			booksAuth1[i].showBookOwner();
+			i++;
+		}
 
 	}
 
